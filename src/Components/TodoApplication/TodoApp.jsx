@@ -26,7 +26,7 @@ export default function TodoApp() {
 
 function LoginComponent() {
     const [username, setUsername] = useState('ittani');
-    const [password, setPassword] = useState('12345');
+    const [password, setPassword] = useState('');
     const [SuccessfullMessage, setShowSuccessMessage] = useState(false);
     const [FailedMessage, setShowFailedMessage] = useState(false);
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ function LoginComponent() {
     }
 
     function handleSubmit() {
-        if (username === 'ittani' && password === '12345') {
+        if (username === 'ittani' && password === '1234') {
             console.log('success');
             setShowSuccessMessage(true);
             setShowFailedMessage(false);
@@ -83,6 +83,7 @@ function LoginComponent() {
                 <div>
                     <button type="button" name="login" onClick={handleSubmit} className="btn btn-primary">Login</button>
                 </div>
+                <p>password hint: 1234</p> {/* Added paragraph */}
             </div>
         </div>
     );
@@ -95,29 +96,38 @@ function WelcomeComponent() {
     return (
         <>
             <HeaderComponent isAuthenticated={true} /> {/* Include HeaderComponent */}
-            <div className="Welcome container">
-                <h1 className="Welcome-heading">Welcome, {username}!</h1>
-                <div className="Welcome-content">
-                    <p>
-                        We're glad to have you on board. Here, you can manage your todos and stay organized.
-                    </p>
-                    <p>
-                        Explore the following features to get started:
-                    </p>
-                    <ul>
-                        <li>Create new todos</li>
-                        <li>Mark todos as complete</li>
-                        <li>Delete completed todos</li>
-                        <li>Update todos</li> {/* Added statement */}
-                    </ul>
-                    <p>
-                        Ready to get started? <Link to="/todos" className="btn btn-primary">Go to your todos</Link>.
-                    </p>
+            <div className="Welcome container mt-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-8">
+                        <div className="card">
+                            <div className="card-body">
+                                <h1 className="Welcome-heading card-title text-center">Welcome, {username}!</h1>
+                                <div className="Welcome-content">
+                                    <p>
+                                        We're glad to have you on board. Here, you can manage your todos and stay organized.
+                                    </p>
+                                    <p>
+                                        Explore the following features to get started:
+                                    </p>
+                                    <ul>
+                                        <li>Create new todos</li>
+                                        <li>Mark todos as complete</li>
+                                        <li>Delete completed todos</li>
+                                        <li>Update todos</li> {/* Added statement */}
+                                    </ul>
+                                    <p>
+                                        Ready to get started? <Link to="/todos" className="btn btn-primary">Go to your todos</Link>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
     );
 }
+
 function ErrorComponent(){
 
     return (
@@ -260,7 +270,7 @@ function HeaderComponent({ isAuthenticated }) {
         <header className="header">
             <div className="container">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a className="navbar-brand" href="/welcome/ittani">Todo App</a>
+                    <a className="navbar-brand" href="/welcome/ittani">Home</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
