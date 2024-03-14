@@ -1,0 +1,245 @@
+label, input, button {
+    margin: 10px;
+    padding: 5px;
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .LoginForm {
+    width: 300px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .LoginForm h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .LoginForm label {
+    font-size: 16px;
+  }
+  
+  .LoginForm input[type="text"],
+  .LoginForm input[type="password"] {
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .LoginForm button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .LoginForm button:hover {
+    background-color: #0056b3;
+  }
+  
+  .SuccessfullMessage {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    color: #155724;
+  }
+  
+  .FailedMessage {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    color: #721c24;
+  }
+
+/* Add this to TodoApp.css */
+
+.Welcome {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Welcome-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .Welcome-content {
+    font-size: 16px;
+  }
+  
+  .Welcome-content p {
+    margin-bottom: 15px;
+  }
+  
+  .Welcome-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .Welcome-content a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .Welcome-content a:hover {
+    text-decoration: underline;
+  }
+  
+  .ListTodoComponent {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .Todo-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .Todo-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .Todo-table th, .Todo-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .Todo-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .Todo-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .Todo-table tr:hover {
+    background-color: #ddd;
+  }
+
+  .footer {
+    bottom: 0;
+    position: absolute;
+    width: 90%;
+    height: 14px;
+  }
+
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin-right: 20px;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  .LogoutComponent {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .logout-message {
+    margin-bottom: 20px;
+  }
+  
+  .logout-message h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .logout-message p {
+    font-size: 16px;
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #0056b3;
+  }
+  /* Additional styles for the table */
+.Todo-table {
+  margin-top: 20px;
+}
+
+.Todo-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Todo-table th,
+.Todo-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.Todo-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+}
+
+.Todo-table tr:last-child td {
+  border-bottom: none; /* Remove border from last row */
+}
+
+.Todo-table tr:hover {
+  background-color: #f9f9f9; /* Highlight on hover */
+}
+
