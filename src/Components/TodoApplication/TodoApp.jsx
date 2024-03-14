@@ -291,13 +291,14 @@ function HeaderComponent({ isAuthenticated }) {
 }
 function FooterComponent() {
     return (
-      <footer className="footer mt-auto py-3 bg-dark text-white">
+      <footer className="footer mt-auto py-3 bg-success text-white">
         <div className="container text-center">
           <p className="mb-0">Reach out to our team: ittani@gmail.com</p>
         </div>
       </footer>
     );
   }
+  
   
   
 function LogoutComponent() {
