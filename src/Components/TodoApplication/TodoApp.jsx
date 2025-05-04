@@ -5,22 +5,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function TodoApp() {
     return (
-        <div className="TodoApp">
-            <HeaderComponent />
-            <BrowserRouter>
+        <BrowserRouter>
+            <div className="TodoApp">
+                <HeaderComponent />
                 <Routes>
                     <Route path='/' element={<LoginComponent />} />
                     <Route path='/login' element={<LoginComponent />} />
                     <Route path='/Welcome/:username' element={<WelcomeComponent />} />
-                    <Route path='*' element={<ErrorComponent />} />
                     <Route path='/todos' element={<ListTodoComponent />} />
                     <Route path='/logout' element={<LogoutComponent />} />
+                    <Route path='*' element={<ErrorComponent />} />
                 </Routes>
-            </BrowserRouter>
-            <FooterComponent />
-        </div>
+                <FooterComponent />
+            </div>
+        </BrowserRouter>
     );
 }
+
 
 // Other components remain unchanged
 
