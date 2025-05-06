@@ -11,6 +11,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying static files...'
+                sh 'cp -r * ~/jenkins-nginx-site/'
             }
         }
     }
