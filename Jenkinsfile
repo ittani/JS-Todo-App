@@ -11,7 +11,6 @@ pipeline {
         stage('Install Build Tools') {
             steps {
                 echo 'Ensuring git and Node.js are installed on the agent...'
-                // Install git, nodejs, and npm (Node Package Manager)
                 sh 'sudo apt-get update && sudo apt-get install -y git nodejs npm'
             }
         }
@@ -19,15 +18,15 @@ pipeline {
         stage('Checkout Todo App from GitHub') {
             steps {
                 echo "Cloning the JS Todo App repository..."
-                // Clean the workspace and clone your specific project repository
-                git url: 'https://github.com/ittani/JS-Todo-App.git', branch: 'main'
+                // CORRECTED: The hardcoded branch has been removed.
+                // This now respects the '*/java' setting from the job configuration.
+                git url: 'https://github.com/ittani/JS-Todo-App.git'
             }
         }
 
         stage('Install Project Dependencies') {
             steps {
                 echo "Running 'npm install' to download dependencies..."
-                // npm install reads the package.json file and installs required libraries
                 sh 'npm install'
             }
         }
@@ -36,17 +35,28 @@ pipeline {
             steps {
                 script {
                     echo "Deploying Todo App to ${env.DEPLOY_DIR}..."
-                    
-                    // Create the deployment directory
                     sh "sudo mkdir -p ${env.DEPLOY_DIR}"
-                    
-                    // Copy only the necessary frontend files to the deployment directory
-                    // We exclude node_modules and the Jenkinsfile
                     sh "sudo rsync -av --exclude 'node_modules' --exclude 'Jenkinsfile' . ${env.DEPLOY_DIR}/"
-                    
                     echo "✅ Deployment complete. Your Todo App is now in ${env.DEPLOY_DIR} on the agent."
                 }
             }
         }
     }
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            cleanWs()
+        }
+        success {
+            echo 'Todo App deployment was successful!'
+        }
+        failure {
+            echo 'Todo App deployment failed. Please check the logs for details.'
+        }
+    }
 }
+// This Jenkinsfile is designed to deploy a JavaScript Todo App from a GitHub repository to
+// a Vagrant-managed server. It ensures the necessary build tools are installed, checks out the
+// application code, installs dependencies, and deploys the app to a specified directory on the server.
+// The deployment directory is defined in the environment section, and the script uses rsync to
+// transfer files while excluding unnecessary directories like 'node_modules' and the Jenkinsfile itself.
