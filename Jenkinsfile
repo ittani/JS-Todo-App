@@ -19,14 +19,14 @@ pipeline {
                 
                 // This is a more explicit and robust way to check out code.
                 // It cleans the workspace and specifically checks out the 'java' branch.
-                checkout([
+                checkout(
                     $class: 'GitSCM',
                     branches: [[name: '*/java']],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'WipeWorkspace']],
                     submoduleCfg: [],
                     userRemoteConfigs: [[url: 'https://github.com/ittani/JS-Todo-App.git']]
-                ])
+                )
             }
         }
 
@@ -43,6 +43,10 @@ pipeline {
                     echo "Deploying Todo App to ${env.DEPLOY_DIR}..."
                     sh "sudo mkdir -p ${env.DEPLOY_DIR}"
                     sh "sudo rsync -av --exclude 'node_modules' --exclude 'Jenkinsfile' . ${env.DEPLOY_DIR}/"
+                    
+                    // ADD THIS LINE to fix permissions automatically on every deployment
+                    sh "sudo chown -R www-data:www-data ${env.DEPLOY_DIR}"
+                    
                     echo "✅ Deployment complete."
                 }
             }
